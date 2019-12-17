@@ -13,12 +13,15 @@ class SimulatorViewController: UIViewController {
     @IBOutlet weak var allTableView: UITableView!
     @IBOutlet weak var myPickTableView: UITableView!
     @IBOutlet weak var otherPickTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     @IBOutlet weak var costLabel: UILabel!
     
     var dataSource:[PlayerData] = []
     var myPickList:[PlayerData] = []
     var otherPickList:[PlayerData] = []
+    var originalArray:[PlayerData] = []
+    var filterArray:[PlayerData] = []
     var money = 200
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +33,7 @@ class SimulatorViewController: UIViewController {
         myPickTableView.delegate = self
         otherPickTableView.dataSource = self
         otherPickTableView.delegate = self
+        searchBar.delegate = self
         configureData()
         costLabel.text = "剩餘金額: \(money)"
     }
@@ -47,6 +51,7 @@ class SimulatorViewController: UIViewController {
                 newData.forEach({ (player) in
                     self.dataSource.append(player)
                 })
+                self.originalArray = self.dataSource
                 self.view.hideToastActivity()
                 self.allTableView.reloadData()
             }) { (error) in
@@ -61,6 +66,7 @@ class SimulatorViewController: UIViewController {
                 newData.forEach({ (player) in
                     self.dataSource.append(player)
                 })
+                originalArray = dataSource
                 self.view.hideToastActivity()
                 self.allTableView.reloadData()
             }
@@ -124,6 +130,7 @@ extension SimulatorViewController: UITableViewDelegate {
                     case "自己選":
                         self.myPickList.append(self.dataSource[indexPath.row])
                         self.dataSource.remove(at: indexPath.row)
+                        self.originalArray = self.dataSource
                         self.myPickTableView.reloadData()
                         self.allTableView.reloadData()
                         let controller = UIAlertController(title: "", message: "花費金額", preferredStyle: .alert)
@@ -146,6 +153,7 @@ extension SimulatorViewController: UITableViewDelegate {
                     default:
                         self.otherPickList.append(self.dataSource[indexPath.row])
                         self.dataSource.remove(at: indexPath.row)
+                        self.originalArray = self.dataSource
                         self.otherPickTableView.reloadData()
                         self.allTableView.reloadData()
                     }
@@ -161,6 +169,26 @@ extension SimulatorViewController: UITableViewDelegate {
     }
     
 }
+
+extension SimulatorViewController : UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText != "" {
+        filterArray.removeAll()
+        dataSource.forEach({ (player) in
+            if let name = player.name, name.contains(searchText) {
+                filterArray.append(player)
+            }
+        })
+        dataSource = filterArray
+        allTableView.reloadData()
+        } else {
+            filterArray.removeAll()
+            dataSource = originalArray
+            allTableView.reloadData()
+    }
+}
+}
+
 // MARK - stats function
 extension SimulatorViewController {
     func perGame(_ stats: Float, _ game: Int) -> Double {

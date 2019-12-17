@@ -11,7 +11,7 @@
         <!--數據篩選-->
         <scene sceneID="nse-zi-2xh">
             <objects>
-                <viewController id="I9t-aA-Ljd" customClass="StatsFilterViewController" customModule="apitesting" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="I9t-aA-Ljd" customClass="StatsFilterViewController" customModule="fantasyNBA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MvU-LS-7OB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -257,7 +257,7 @@
         <!--系統設定-->
         <scene sceneID="eMu-Tw-Soj">
             <objects>
-                <viewController id="TQa-aQ-Nxg" customClass="SettingsViewController" customModule="apitesting" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TQa-aQ-Nxg" customClass="SettingsViewController" customModule="fantasyNBA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JQ2-Tv-Npj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -386,7 +386,7 @@
         <!--Simulator View Controller-->
         <scene sceneID="vBs-iM-FWz">
             <objects>
-                <viewController id="feK-T0-JaG" customClass="SimulatorViewController" customModule="apitesting" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="feK-T0-JaG" customClass="SimulatorViewController" customModule="fantasyNBA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Hk-JK-mvw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -418,12 +418,6 @@
                                     <constraint firstAttribute="width" constant="170" id="bfP-wH-DnX"/>
                                 </constraints>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="剩餘金額:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVa-Is-214">
-                                <rect key="frame" x="3" y="44" width="122" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* 此排行為CP值由高至低" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9o-AP-jfy">
                                 <rect key="frame" x="6" y="343" width="168.5" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -448,26 +442,41 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <searchBar contentMode="redraw" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="l90-C8-Auq">
+                                <rect key="frame" x="0.0" y="53" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="剩餘金額:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVa-Is-214">
+                                <rect key="frame" x="249" y="341" width="110" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="gdT-7y-Dxd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="hgf-CC-kFN" firstAttribute="trailing" secondItem="zOM-sW-Hk6" secondAttribute="trailing" constant="5" id="0tC-NB-BS6"/>
+                            <constraint firstItem="jD9-cZ-3Fk" firstAttribute="top" secondItem="l90-C8-Auq" secondAttribute="bottom" constant="7" id="2KP-uC-CJa"/>
+                            <constraint firstItem="l90-C8-Auq" firstAttribute="leading" secondItem="hgf-CC-kFN" secondAttribute="leading" id="3ho-Ps-Ctf"/>
                             <constraint firstItem="Afy-Ne-XKf" firstAttribute="top" secondItem="w9o-AP-jfy" secondAttribute="bottom" constant="8" id="6tl-7v-ekg"/>
-                            <constraint firstItem="yVa-Is-214" firstAttribute="top" secondItem="hgf-CC-kFN" secondAttribute="top" id="8EU-Q0-HF2"/>
                             <constraint firstItem="w9o-AP-jfy" firstAttribute="top" secondItem="zOM-sW-Hk6" secondAttribute="bottom" constant="3" id="93r-Vx-Ufx"/>
                             <constraint firstItem="hgf-CC-kFN" firstAttribute="bottom" secondItem="Afy-Ne-XKf" secondAttribute="bottom" constant="10" id="ACN-Gr-UuP"/>
                             <constraint firstItem="hgf-CC-kFN" firstAttribute="trailing" secondItem="w9o-AP-jfy" secondAttribute="trailing" constant="200.5" id="HfZ-sN-nmc"/>
                             <constraint firstItem="jD9-cZ-3Fk" firstAttribute="centerX" secondItem="PvL-W1-gUX" secondAttribute="centerX" id="Nh1-A7-x9c"/>
                             <constraint firstItem="PvL-W1-gUX" firstAttribute="top" secondItem="jD9-cZ-3Fk" secondAttribute="bottom" constant="8" id="OP2-N0-sr8"/>
                             <constraint firstItem="zOM-sW-Hk6" firstAttribute="top" secondItem="svO-Hs-1Xw" secondAttribute="bottom" constant="8" id="Oil-eg-xwv"/>
+                            <constraint firstItem="hgf-CC-kFN" firstAttribute="trailing" secondItem="l90-C8-Auq" secondAttribute="trailing" id="Q45-Ue-tZj"/>
                             <constraint firstItem="PvL-W1-gUX" firstAttribute="leading" secondItem="hgf-CC-kFN" secondAttribute="leading" constant="5" id="TvY-aI-v2Y"/>
                             <constraint firstItem="PvL-W1-gUX" firstAttribute="bottom" secondItem="zOM-sW-Hk6" secondAttribute="bottom" id="Wc1-pW-XV1"/>
                             <constraint firstItem="hgf-CC-kFN" firstAttribute="trailing" secondItem="Afy-Ne-XKf" secondAttribute="trailing" id="YLL-UP-z2B"/>
-                            <constraint firstItem="yVa-Is-214" firstAttribute="leading" secondItem="hgf-CC-kFN" secondAttribute="leading" constant="3" id="bbk-ql-Vjp"/>
+                            <constraint firstItem="hgf-CC-kFN" firstAttribute="trailing" secondItem="yVa-Is-214" secondAttribute="trailing" constant="16" id="bqK-Wt-VbH"/>
                             <constraint firstItem="Afy-Ne-XKf" firstAttribute="leading" secondItem="hgf-CC-kFN" secondAttribute="leading" id="eyb-rK-I2d"/>
                             <constraint firstItem="PvL-W1-gUX" firstAttribute="top" secondItem="zOM-sW-Hk6" secondAttribute="top" id="fcZ-aO-vfc"/>
                             <constraint firstItem="w9o-AP-jfy" firstAttribute="top" secondItem="PvL-W1-gUX" secondAttribute="bottom" constant="3" id="iBO-Q6-H14"/>
-                            <constraint firstItem="hgf-CC-kFN" firstAttribute="trailing" secondItem="yVa-Is-214" secondAttribute="trailing" constant="250" id="mY0-rC-HkG"/>
+                            <constraint firstItem="yVa-Is-214" firstAttribute="top" secondItem="zOM-sW-Hk6" secondAttribute="bottom" constant="1" id="lWR-BI-yXX"/>
                             <constraint firstItem="svO-Hs-1Xw" firstAttribute="centerX" secondItem="zOM-sW-Hk6" secondAttribute="centerX" id="rzb-P1-NTi"/>
                             <constraint firstItem="w9o-AP-jfy" firstAttribute="leading" secondItem="hgf-CC-kFN" secondAttribute="leading" constant="6" id="ueS-td-EqI"/>
                         </constraints>
@@ -479,6 +488,7 @@
                         <outlet property="costLabel" destination="yVa-Is-214" id="3yd-4h-wau"/>
                         <outlet property="myPickTableView" destination="PvL-W1-gUX" id="TmR-Cn-1cp"/>
                         <outlet property="otherPickTableView" destination="zOM-sW-Hk6" id="mle-Lv-wP7"/>
+                        <outlet property="searchBar" destination="l90-C8-Auq" id="7ob-mz-O0e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G95-5p-VAy" userLabel="First Responder" sceneMemberID="firstResponder"/>
