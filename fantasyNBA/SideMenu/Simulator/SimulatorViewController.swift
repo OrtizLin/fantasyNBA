@@ -31,8 +31,12 @@ class SimulatorViewController: UIViewController {
         allTableView.delegate = self
         myPickTableView.dataSource = self
         myPickTableView.delegate = self
+        myPickTableView.layer.borderWidth = 2.0
+        myPickTableView.layer.borderColor = UIColor.green.cgColor
         otherPickTableView.dataSource = self
         otherPickTableView.delegate = self
+        otherPickTableView.layer.borderWidth = 2.0
+        otherPickTableView.layer.borderColor = UIColor.red.cgColor
         searchBar.delegate = self
         configureData()
         costLabel.text = "剩餘金額: \(money)"
